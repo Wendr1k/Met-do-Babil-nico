@@ -1,0 +1,26 @@
+#include <stdio.h>
+ 
+/*Função que retorna a raiz quadrada de um número n */
+float raizQuadrada(float n)
+{
+    /*Utiliza-se a0=n e b0=1*/
+    float x = n;
+    float y = 1;
+    float e = 0.000001; /*Margem de erro adotada*/
+    
+    while (x - y > e) {
+        x = (x + y) / 2;   /*função iterativa*/
+        y = n / x;
+    }
+    return x;
+}
+ 
+/* função main para testar a função de Raiz Quadrada*/
+int main()
+{
+    float n;
+    printf("Digite o número desejado: ");
+    scanf("%f",&n);            /* entrada do dado pelo usuário*/
+    printf("Sua raíz quadrada é %f", raizQuadrada(n));
+    getchar();
+}
